@@ -1,0 +1,44 @@
+
+<%= render 'layouts/filter' %>
+<div class="row">
+<table class="small-12 small-centered large-12 large-centered">
+    <thead>
+      <tr>
+        <th>SEVA Score</th>
+        <th>Name</th>
+        <th>State</th>
+        <th>Class</th>
+        <th>Height</th>
+        <th>Stat Year</th>
+        <th>PPG</th>
+        <th>APG</th>
+        <th>RPG</th>
+        <th>Win%</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @players.each do |player| %>
+    <tr>
+      <td><strong><%= player.seva_score %></strong></td>
+      <td><%= link_to player.name, player_path(player) %></td>
+      <td><%= player.st %></td>
+      <td><%= player.stat_year %></td>
+      <td><%= player.height %></td>
+      <td><%= player.hsclass %></td>
+      <td><%= player.ppg %></td>
+      <td><%= player.apg %></td>
+      <td><%= player.rpg %></td>
+      <td><%= player.win %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="center">
+<%= will_paginate @players, :previous_label => "PREV", :next_label => 'NEXT' %>
+</div>
+
+</div>
+
+
+

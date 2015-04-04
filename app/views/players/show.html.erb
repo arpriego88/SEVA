@@ -1,0 +1,157 @@
+<divclass="clearfix">
+    <span class="label success right" style="font-size: 1.5em;"><%= @player.seva_score %></span>
+    <h3 class="left"><%= @player.name %></h3>
+</div>
+  <span><%= @player.high_school %></span> | 
+  <span><%= (@player.height / 12) %>' <%= @player.height % 12 %>"</span> | 
+  <span><%= @player.position %></span>
+  <h6><%= @player.committed_to %></h6>
+  <h6><%= @player.st %></h6>
+  <h6>Class: <%= @player.stat_year %></h6>
+   <div class="progress small-12 large-12">
+    <span class="meter" style="width:<%= @player.espn %>%"><p style="color: white; font-size: .75em;"> <%= @player.espn %> ESPN Rating</p></span>
+  </div>
+  <div class="progress small-12 large-12">
+    <span class="meter" style="width:<%= @player.scout * 20 %>%"><p style="color: white; font-size: .75em;"> <%= @player.scout %> Scout Rating</p></span>
+  </div>
+  <div class="progress small-12 large-12">
+    <span class="meter" style="width:<%= @player.rivals * 20 %>%"><p style="color: white; font-size: .75em;"> <%= @player.rivals %> Rivals Rating</p></span>
+  </div>
+  <h6>Stat Year: <%= @player.hsclass %></h6>
+  
+  <h6><%= @player.style %></h6>
+ 
+  
+  <!-- <h6><%= @player.risk_score %></h6> -->
+  
+
+  <!-- <h6><%= @player.barwin %></h6>
+  <h6><%= @player.barppg %></h6>
+  <h6><%= @player.barfg %></h6>
+  <h6><%= @player.barapg %></h6>
+  <h6><%= @player.barrpg %></h6>
+  <h6><%= @player.barbpg %></h6>
+  <h6><%= @player.barspg %></h6> -->
+
+
+<ul class="tabs" data-tab>
+  <li class="tab-title active"><a href="#panel1">Senior</a></li>
+  <li class="tab-title"><a href="#panel2">Junior</a></li>
+  <li class="tab-title"><a href="#panel3">Sophomore</a></li>
+  <li class="tab-title"><a href="#panel4">Freshman</a></li>
+  <li class="tab-title"><a href="#panel5">AAU</a></li>
+  <li class="tab-title"><a href="#panel6">NBA Top-100 Camp</a></li>
+</ul>
+<div class="tabs-content">
+  <div class="content active" id="panel1" style="margin-top: 10px;">
+    <div class="row">  
+     <table class="large-12 columns">
+        <thead>
+          <tr>
+            <th>PPG</th>
+            <th>APG</th>
+            <th>RPG</th>
+            <th>BPG</th>
+            <th>SPG</th>
+            <th>FG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> <%= @player.ppg %></td>
+            <td> <%= @player.apg %></td>
+            <td> <%= @player.rpg %></td>
+            <td> <%= @player.bpg %></td>
+            <td> <%= @player.spg %></td>
+            <td> <%= @player.fg %></td>
+          </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+  <div class="content" id="panel2" style="margin-top: 10px;">
+    <div class="row">  
+      <table class="large-12 columns">
+        <thead>
+          <tr>
+            <th>PPG</th>
+            <th>APG</th>
+            <th>RPG</th>
+            <th>BPG</th>
+            <th>SPG</th>
+            <th>FG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> <%= @player.ppg %></td>
+            <td> <%= @player.apg %></td>
+            <td> <%= @player.rpg %></td>
+            <td> <%= @player.bpg %></td>
+            <td> <%= @player.spg %></td>
+            <td> <%= @player.fg %></td>
+          </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+  <div class="content" id="panel3" style="margin-top: 10px;">
+    <div class="row">  
+      <table class="large-12 columns">
+        <thead>
+          <tr>
+            <th>PPG</th>
+            <th>APG</th>
+            <th>RPG</th>
+            <th>BPG</th>
+            <th>SPG</th>
+            <th>FG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> <%= @player.ppg %></td>
+            <td> <%= @player.apg %></td>
+            <td> <%= @player.rpg %></td>
+            <td> <%= @player.bpg %></td>
+            <td> <%= @player.spg %></td>
+            <td> <%= @player.fg %></td>
+          </tr>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+  <div class="content" id="panel4" style="margin-top: 10px;">
+    <p class="center">No data yet. Help us by submitting this player's high school coach's <a href="#">email.</a></p>
+  </div>
+  <div class="content" id="panel5" style="margin-top: 10px;">
+    <p class="center">No data yet. Help us by submitting this player's high school coach's <a href="#">email.</a></p>
+  </div>
+  <div class="content" id="panel6" style="margin-top: 10px;">
+    <p class="center">No data yet. Help us by submitting this player's high school coach's <a href="#">email.</a></p>
+  </div>
+</div>
+
+<table class="large-12 columns">
+  <thead>
+    <tr>
+      <th>Past Similar Players</th>
+      <th>Current Similar Players</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @player.past_similar_one %></td>
+      <td><%= @player.current_similar_one %></td>
+    </tr>
+    <tr>
+      <td><%= @player.past_similar_two %></td>
+      <td><%= @player.current_similar_two %></td>
+    </tr>
+    <tr>
+      <td><%= @player.past_similar_three %></td>
+      <td><%= @player.current_similar_three %></td>
+    </tr>
+  </tbody>
+</table>  
+   
