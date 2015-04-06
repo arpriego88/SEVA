@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403025624) do
+ActiveRecord::Schema.define(version: 20150405213131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,42 @@ ActiveRecord::Schema.define(version: 20150403025624) do
     t.float    "barspg"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.float    "seva_score_c"
+    t.float    "ppgc"
+    t.float    "apgc"
+    t.float    "rpgc"
+    t.float    "bpgc"
+    t.float    "spgc"
+    t.integer  "fgpc"
+    t.float    "seva_score_f"
+    t.float    "ppgf"
+    t.float    "apgf"
+    t.float    "rpgf"
+    t.float    "bpgf"
+    t.float    "spgf"
+    t.integer  "fgpf"
+    t.float    "seva_score_s"
+    t.float    "ppgs"
+    t.float    "apgs"
+    t.float    "rpgs"
+    t.float    "bpgs"
+    t.float    "spgs"
+    t.integer  "fgps"
+    t.float    "seva_score_j"
+    t.float    "ppgj"
+    t.float    "apgj"
+    t.float    "rpgj"
+    t.float    "bpgj"
+    t.float    "spgj"
+    t.integer  "fgpj"
+    t.float    "seva_score_sr"
+    t.float    "ppgsr"
+    t.float    "apgsr"
+    t.float    "rpgsr"
+    t.float    "bpgsr"
+    t.float    "spgsr"
+    t.integer  "fgpsr"
+    t.string   "video_url"
   end
 
   create_table "users", force: :cascade do |t|

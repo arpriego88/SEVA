@@ -1,50 +1,88 @@
-<divclass="clearfix">
-    <span class="label success right" style="font-size: 1.5em;"><%= @player.seva_score %></span>
-    <h3 class="left"><%= @player.name %></h3>
+<span class="label tiny alert"><%= @player.style %></span>
+<% if @top10.include?(@player) %>
+<span class="label tiny alert">SEVA Top 10</span>
+<% end %>
+<% if @top100.include?(@player) %>
+<span class="label tiny alert">SEVA Top 100</span>
+<% end %>
+</br>
+<div class="clearfix">
+  <div class="label alert right">
+    <p style="font-size: 2.5em;"><strong><%= @player.seva_score_c %></strong></p>
+    <p style="margin-top: -30px; margin-bottom: 5px; font-size: .8em;">SEVA Score</p>
+  </div>
+  <div class="left">
+    <span class="main-title" style="font-size: 2em;"><strong><%= @player.name %></strong></span> <span><%= @player.hsclass %></span>
+    <p style="margin-top: -10px;"><%= @player.high_school %>, <%= @player.st %></p>
+    <p style="margin-top: -25px;"><strong><%= @player.committed_to %></strong></p>
+  </div>
 </div>
-  <span><%= @player.high_school %></span> | 
-  <span><%= (@player.height / 12) %>' <%= @player.height % 12 %>"</span> | 
-  <span><%= @player.position %></span>
-  <h6><%= @player.committed_to %></h6>
-  <h6><%= @player.st %></h6>
-  <h6>Class: <%= @player.stat_year %></h6>
-   <div class="progress small-12 large-12">
-    <span class="meter" style="width:<%= @player.espn %>%"><p style="color: white; font-size: .75em;"> <%= @player.espn %> ESPN Rating</p></span>
-  </div>
-  <div class="progress small-12 large-12">
-    <span class="meter" style="width:<%= @player.scout * 20 %>%"><p style="color: white; font-size: .75em;"> <%= @player.scout %> Scout Rating</p></span>
-  </div>
-  <div class="progress small-12 large-12">
-    <span class="meter" style="width:<%= @player.rivals * 20 %>%"><p style="color: white; font-size: .75em;"> <%= @player.rivals %> Rivals Rating</p></span>
-  </div>
-  <h6>Stat Year: <%= @player.hsclass %></h6>
+
+<%#= (@player.height / 12) %><%#= @player.height % 12 %>
+<%#= @player.position %>
   
-  <h6><%= @player.style %></h6>
- 
-  
-  <!-- <h6><%= @player.risk_score %></h6> -->
   
 
-  <!-- <h6><%= @player.barwin %></h6>
-  <h6><%= @player.barppg %></h6>
-  <h6><%= @player.barfg %></h6>
-  <h6><%= @player.barapg %></h6>
-  <h6><%= @player.barrpg %></h6>
-  <h6><%= @player.barbpg %></h6>
-  <h6><%= @player.barspg %></h6> -->
+<div class="progress small-12 large-12 columns">
+  <span class="meter text-center" style="width:<%= @player.seva_score_c * 10%>%"><p style="color: white; font-size: .75em;"> <%= @player.seva_score_c %> SEVA Score</p></span>
+</div>
+<% if @player.espn > 0 %>
+<div class="progress small-12 large-12 columns">
+  <span class="meter text-center" style="width:<%= @player.espn %>%"><p style="color: white; font-size: .75em;"> <%= @player.espn %> ESPN Rating</p></span>
+</div>
+<% else %>
+<div class="progress small-12 large-12 columns secondary">
+  <span class="meter text-center" style="width: 100%"><p style="color: white; font-size: .75em;"> No ESPN Rating</p></span>
+</div>
+<% end %>
+<% if @player.scout > 0 %>
+<div class="progress small-12 large-12 columns">
+  <span class="meter text-center" style="width:<%= @player.scout * 20 %>%"><p style="color: white; font-size: .75em;"> <%= @player.scout %> Star Scout Rating</p></span>
+</div>
+<% else %>
+<div class="progress small-12 large-12 columns secondary">
+  <span class="meter text-center" style="width: 100%"><p style="color: white; font-size: .75em;"> No Scout Rating</p></span>
+</div>
+<% end %>
+<% if @player.rivals > 0 %>
+<div class="progress small-12 large-12 columns">
+  <span class="meter text-center" style="width:<%= @player.rivals * 20 %>%"><p style="color: white; font-size: .75em;"> <%= @player.rivals %> Star Rivals Rating</p>
+  </span>
+</div>
+<% else %>
+<div class="progress small-12 large-12 columns secondary">
+  <span class="meter text-center" style="width: 100%"><p style="color: white; font-size: .75em;"> No Rivals Rating</p>
+  </span>
+</div>
+<% end %>
 
+  
 
-<ul class="tabs" data-tab>
-  <li class="tab-title active"><a href="#panel1">Senior</a></li>
-  <li class="tab-title"><a href="#panel2">Junior</a></li>
-  <li class="tab-title"><a href="#panel3">Sophomore</a></li>
-  <li class="tab-title"><a href="#panel4">Freshman</a></li>
-  <li class="tab-title"><a href="#panel5">AAU</a></li>
-  <li class="tab-title"><a href="#panel6">NBA Top-100 Camp</a></li>
+<ul class="tabs small-12 large-12 columns" style="margin-top: 35px;" data-tab>
+  <% if @player.hsclass <= '2015' %> 
+    <li class="tab-title active"><a href="#panel1"><strong>Senior</strong></a></li>
+    <li class="tab-title"><a href="#panel2"><strong>Junior</strong></a></li>
+    <li class="tab-title"><a href="#panel3"><strong>Sophomore</strong></a></li>
+    <li class="tab-title"><a href="#panel4"><strong>Freshman</strong></a></li>
+  <% elsif @player.hsclass <= '2016' %>
+    <li class="tab-title active"><a href="#panel2">Junior</a></li>
+    <li class="tab-title"><a href="#panel3">Sophomore</a></li>
+    <li class="tab-title"><a href="#panel4">Freshman</a></li>
+  <% elsif @player.hsclass <= '2017' %>
+    <li class="tab-title active"><a href="#panel3">Sophomore</a></li>
+    <li class="tab-title"><a href="#panel4">Freshman</a></li>
+  <% elsif @player.hsclass <= '2018' %>
+    <li class="tab-title active"><a href="#panel4">Freshman</a></li>
+  <% end %>
 </ul>
 <div class="tabs-content">
-  <div class="content active" id="panel1" style="margin-top: 10px;">
-    <div class="row">  
+  <% if @player.hsclass <= '2015' %>
+    <div class="content active" id="panel1" style="margin-top: 10px;">
+  <% else %>
+    <div class="content" id="panel1" style="margin-top: 10px;">
+  <% end %>
+    <div class="row">
+     <% if @player.hsclass <= '2015' && @player.ppgsr > 0 %> 
      <table class="large-12 columns">
         <thead>
           <tr>
@@ -58,19 +96,27 @@
         </thead>
         <tbody>
           <tr>
-            <td> <%= @player.ppg %></td>
-            <td> <%= @player.apg %></td>
-            <td> <%= @player.rpg %></td>
-            <td> <%= @player.bpg %></td>
-            <td> <%= @player.spg %></td>
-            <td> <%= @player.fg %></td>
+            <td> <%= @player.ppgsr %></td>
+            <td> <%= @player.apgsr %></td>
+            <td> <%= @player.rpgsr %></td>
+            <td> <%= @player.bpgsr %></td>
+            <td> <%= @player.spgsr %></td>
+            <td> <%= @player.fgpsr %></td>
           </tr>
         </tbody>
       </table> 
+      <% else %>
+        <p class="text-center">Sorry, we don't have <%= @player.name %>'s stats for this season</p>
+      <% end %>
     </div>
   </div>
-  <div class="content" id="panel2" style="margin-top: 10px;">
-    <div class="row">  
+  <% if @player.hsclass <= '2016' && @player.hsclass != '2015' %>
+    <div class="content active" id="panel2" style="margin-top: 10px;">
+  <% else %>
+    <div class="content" id="panel2" style="margin-top: 10px;">
+  <% end %>
+    <div class="row"> 
+      <% if @player.hsclass <= '2016' %>
       <table class="large-12 columns">
         <thead>
           <tr>
@@ -84,19 +130,27 @@
         </thead>
         <tbody>
           <tr>
-            <td> <%= @player.ppg %></td>
-            <td> <%= @player.apg %></td>
-            <td> <%= @player.rpg %></td>
-            <td> <%= @player.bpg %></td>
-            <td> <%= @player.spg %></td>
-            <td> <%= @player.fg %></td>
+            <td> <%= @player.ppgj %></td>
+            <td> <%= @player.apgj %></td>
+            <td> <%= @player.rpgj %></td>
+            <td> <%= @player.bpgj %></td>
+            <td> <%= @player.spgj %></td>
+            <td> <%= @player.fgpj %></td>
           </tr>
         </tbody>
-      </table> 
+      </table>
+      <% else %>
+        <p class="text-center">Sorry, we don't have <%= @player.name %>'s stats for this season</p>
+      <% end %>
     </div>
   </div>
-  <div class="content" id="panel3" style="margin-top: 10px;">
-    <div class="row">  
+  <% if @player.hsclass <= '2017' && @player.hsclass != '2016' && @player.hsclass != '2015' %>
+    <div class="content active" id="panel3" style="margin-top: 10px;">
+  <% else %>
+    <div class="content" id="panel3" style="margin-top: 10px;">
+  <% end %>
+    <div class="row">
+      <% if @player.hsclass <= '2017' && @player.ppgs > 0 %>
       <table class="large-12 columns">
         <thead>
           <tr>
@@ -110,33 +164,61 @@
         </thead>
         <tbody>
           <tr>
-            <td> <%= @player.ppg %></td>
-            <td> <%= @player.apg %></td>
-            <td> <%= @player.rpg %></td>
-            <td> <%= @player.bpg %></td>
-            <td> <%= @player.spg %></td>
-            <td> <%= @player.fg %></td>
+            <td> <%= @player.ppgs %></td>
+            <td> <%= @player.apgs %></td>
+            <td> <%= @player.rpgs %></td>
+            <td> <%= @player.bpgs %></td>
+            <td> <%= @player.spgs %></td>
+            <td> <%= @player.fgps %></td>
           </tr>
         </tbody>
       </table> 
+      <% else %>
+        <p class="text-center">Sorry, we don't have <%= @player.name %>'s stats for this season</p>
+      <% end %>
     </div>
   </div>
-  <div class="content" id="panel4" style="margin-top: 10px;">
-    <p class="center">No data yet. Help us by submitting this player's high school coach's <a href="#">email.</a></p>
-  </div>
-  <div class="content" id="panel5" style="margin-top: 10px;">
-    <p class="center">No data yet. Help us by submitting this player's high school coach's <a href="#">email.</a></p>
-  </div>
-  <div class="content" id="panel6" style="margin-top: 10px;">
-    <p class="center">No data yet. Help us by submitting this player's high school coach's <a href="#">email.</a></p>
+  <% if @player.hsclass <= '2018' && @player.hsclass != '2017' && @player.hsclass != '2016' && @player.hsclass != '2015' %>
+    <div class="content active" id="panel4" style="margin-top: 10px;">
+  <% else %>
+    <div class="content" id="panel4" style="margin-top: 10px;">
+  <% end %>
+    <div class="row"> 
+      <% if @player.hsclass <= '2018' && @player.ppgf > 0 %>
+      <table class="large-12 columns">
+        <thead>
+          <tr>
+            <th>PPG</th>
+            <th>APG</th>
+            <th>RPG</th>
+            <th>BPG</th>
+            <th>SPG</th>
+            <th>FG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> <%= @player.ppgf %></td>
+            <td> <%= @player.apgf %></td>
+            <td> <%= @player.rpgf %></td>
+            <td> <%= @player.bpgf %></td>
+            <td> <%= @player.spgf %></td>
+            <td> <%= @player.fgpf %></td>
+          </tr>
+        </tbody>
+      </table> 
+      <% else %>
+        <p class="text-center">Sorry, we don't have <%= @player.name %>'s stats for this season</p>
+      <% end %>
+    </div>
   </div>
 </div>
 
 <table class="large-12 columns">
   <thead>
     <tr>
-      <th>Past Similar Players</th>
-      <th>Current Similar Players</th>
+      <th><h6><strong>Past Similar Players</strong></h6></th>
+      <th><h6><strong>Current Similar Players</strong></h6></th>
     </tr>
   </thead>
   <tbody>
@@ -154,4 +236,13 @@
     </tr>
   </tbody>
 </table>  
-   
+
+<% if @player.video_url.present? %>
+<iframe style="margin-top: 35px;" id="ytplayer" type="text/html" width="100%" height="480"
+  src="<%= embed_youtube_player_url(@player.video_url)%>"
+  frameborder="0">
+</iframe>
+<% end %>
+
+<%= link_to "Back to Players", players_path, class: 'button primary tiny' %>
+

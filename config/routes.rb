@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'users/profile'
 
   devise_for :users
-  get 'players' => 'players#index', as: :players
-  get 'players/:id' => 'players#show', as: :player
+
+  resources :players, :only => [:index, :show, :edit, :update]
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

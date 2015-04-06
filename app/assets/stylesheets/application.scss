@@ -16,11 +16,12 @@
  *= require_self
 
  */
+@import url(http://fonts.googleapis.com/css?family=Oswald:700);
 
 @import "font-awesome";
 
 body {
-  padding-top: 50px;
+ 
 }
 
 * {
@@ -31,4 +32,10 @@ body {
   text-align: center;
   margin: 0 auto;
 }
+
+.main-title {
+  font-family: 'Oswald', sans-serif;
+  text-decoration: none;
+}
+
 

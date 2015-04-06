@@ -953,7 +953,7 @@ $black       : #000000;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
- $panel-bg: scale-color($white, $lightness: -5%);
+ $panel-bg: scale-color($white, $lightness: -1%);
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -963,7 +963,7 @@ $black       : #000000;
 
 // We use these to set default inner padding and bottom margin
 // $panel-margin-bottom: rem-calc(20);
- $panel-padding: rem-calc(50);
+ $panel-padding: rem-calc(25);
 
 // We use these to set default font colors
 // $panel-font-color: $oil;
