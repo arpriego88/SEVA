@@ -1,0 +1,13 @@
+<h2>Edit Player</h2>
+
+<%= form_for(@player) do |f| %>
+
+  <div class="field">
+    <%= f.label :video_url %><br />
+    <%= f.text_field :video_url, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
