@@ -12,7 +12,7 @@
       </div>
 
       <div class="small-12 large-11 large-centered columns ">
-        <%= f.select :type, options_for_select(['Coach', 'Fan', 'Player', 'Parent']) %>
+        <%= f.select :users_type, options_for_select(['Coach', 'Fan', 'Player', 'Parent']) %>
       </div>
 
       <div class="small-12 large-11 large-centered columns ">
@@ -23,7 +23,7 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation" %>
       </div>
       <div class="small-12 large-11 large-centered columns "> 
-        <%= f.submit "Sign up", class: "small button primary expand" %>
+        <%= f.submit "Sign Up", class: "small button primary expand" %>
       </div>
 
     <% end %>

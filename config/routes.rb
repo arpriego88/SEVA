@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'users/profile'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :players, :only => [:index, :show, :edit, :update]
  

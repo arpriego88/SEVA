@@ -5,14 +5,6 @@ class RegistrationsController < Devise::RegistrationsController
   # This means that all of our default Devise stuff works, and we can add some extras
   # In this case, I added the attributes name and bio to the model and changed the sign_up and account_update params to reflect that.
   
-  def new
-    redirect_to players_path
-  end
-
-  def edit
-    
-  end
-
   private
 
   def sign_up_params

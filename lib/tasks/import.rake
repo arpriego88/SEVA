@@ -18,6 +18,7 @@ namespace :import do
       seva_score_sr: row[:seva_score_sr], ppgsr: row[:ppgsr], apgsr: row[:apgsr], rpgsr: row[:rpgsr], bpgsr: row[:bpgsr], spgsr: row[:spgsr],
       fgpsr: row[:fgpsr])
       counter += 1 if player.persisted?
+      puts counter
     end
     puts "Imported #{counter} players"
   end

@@ -11,12 +11,8 @@
   </div>
 
   <div class="field">
-    <%= f.select :type, options_for_select(['Fan', 'Coach', 'Parent', 'Player']) %>
+    <%= f.select :users_type, options_for_select(['Fan', 'Coach', 'Parent', 'Player']) %>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
 
   <div class="panel">
      <h5><small>Change your password</small></h5>
