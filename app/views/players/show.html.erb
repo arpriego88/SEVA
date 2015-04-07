@@ -13,7 +13,7 @@
   </div>
   <div class="left">
     <span class="main-title" style="font-size: 2em;"><strong><%= @player.name %></strong></span> <span><%= @player.hsclass %></span>
-    <p style="margin-top: -10px;"><%= @player.high_school %>, <%= @player.st %></p>
+    <p style="margin-top: -10px;"><%= (@player.height / 12) %>'<%= (@player.height % 12) %>" | <%= @player.high_school %>, <%= @player.st %></p>
     <p style="margin-top: -25px;"><strong><%= @player.committed_to %></strong></p>
   </div>
 </div>
