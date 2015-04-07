@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #Devise
-  config.action_mailer.default_url_options = { '#' }
+  config.action_mailer.default_url_options = { 'sevasports.herokuapp.com' }
 end
