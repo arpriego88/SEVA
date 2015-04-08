@@ -1,13 +1,34 @@
-<h2>Edit Player</h2>
+<div class="row">
+  <div class="panel large-8 large-centered columns">
+    <h2 class="text-center">Edit Player</h2>
+    </br>
+    <%= form_for(@player) do |f| %>
 
-<%= form_for(@player) do |f| %>
+      <div class="small-12 large-11 large-centered columns">
+        <%= f.text_field :committed_to, autofocus: true, placeholder: "Committed to..." %>
+      </div>
+      <div class="small-12 large-11 large-centered columns">
+        <%= f.text_field :video_url, autofocus: true, placeholder: "YouTube Video URL" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :video_url %><br />
-    <%= f.text_field :video_url, autofocus: true %>
+      <div class="small-12 large-11 large-centered columns">
+        <%= f.label :espn %>
+        <%= f.number_field :espn, autofocus: true, placeholder: "ESPN Rating" %>
+      </div>
+
+      <div class="small-12 large-11 large-centered columns">
+        <%= f.label :rivals %>
+        <%= f.number_field :rivals, autofocus: true, placeholder: "Rivals Rating" %>
+      </div>
+
+      <div class="small-12 large-11 large-centered columns">
+        <%= f.label :scout %>
+        <%= f.number_field :scout, autofocus: true, placeholder: "Scout Rating" %>
+      </div>
+
+      <div class="small-12 large-11 large-centered columns">
+        <%= f.submit "Update", class: "button expand" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+</div>
