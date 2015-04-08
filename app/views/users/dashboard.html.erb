@@ -1,3 +1,6 @@
+<span class="label alert pull-right">Total Users <%= @users.count %></span>
+
+</br>
 <div class="row">
 <table class="small-12 small-centered large-12 large-centered">
     <thead>
@@ -11,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-    <% @user.each do |u| %>
+    <% @users.each do |u| %>
     <tr>
       <td><%= u.name %></td>
       <td><%= u.email %></td>
@@ -23,3 +26,7 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="center">
+<%= will_paginate @users, :previous_label => "PREV", :next_label => 'NEXT' %>
+</div>

@@ -18,11 +18,8 @@
   </div>
 </div>
 
-<%#= (@player.height / 12) %><%#= @player.height % 12 %>
 <%#= @player.position %>
   
-  
-
 <div class="progress small-12 large-12 columns">
   <span class="meter text-center" style="width:<%= @player.seva_score_c * 10%>%"><p style="color: white; font-size: .75em;"> <%= @player.seva_score_c %> SEVA Score</p></span>
 </div>
@@ -116,7 +113,7 @@
     <div class="content" id="panel2" style="margin-top: 10px;">
   <% end %>
     <div class="row"> 
-      <% if @player.hsclass <= '2016' %>
+      <% if @player.hsclass <= '2016' && @player.ppgj > 0 %>
       <table class="large-12 columns">
         <thead>
           <tr>

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def dashboard
     if current_user.admin?
-      @user = User.all
+      @users = User.all.paginate(:page => params[:page], :per_page => 25)
     else
       redirect_to players_path
     end
