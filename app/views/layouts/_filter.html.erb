@@ -1,4 +1,5 @@
 
+
   <fieldset>
     <legend>Filter Players</legend>
       <%= form_tag(players_path, method: :get) do %>
@@ -42,7 +43,7 @@
           <%= link_to fa_icon('refresh'), players_path, class: "tiny button expand alert" %>
         </div>
         <div class="small-4 medium-4 large-8 columns" style="margin-top: -10px;">
-          <input style="height: 33px;", type= "text", placeholder="Search by Name..." />
+          <%= text_field_tag 'name', params[:name], style: "height: 33px;", type: "text", placeholder: "Search..." %>
         </div>
         <div class="small-4 medium-4 large-2 columns" style="margin-top: -10px;">
           <%= submit_tag "Filter" , class: "tiny button expand" %>

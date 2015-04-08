@@ -14,12 +14,13 @@ class PlayersController < ApplicationController
     filter << "style = '#{params[:style]}'"  if params[:style].present?
     filter << "hsclass = '#{params[:hsclass]}'"  if params[:hsclass].present?
     filter << "st = '#{params[:st]}'"  if params[:st].present?
-  
+    filter << "name = '#{params[:name]}'" if params[:name].present?
+    #filter << "'name in ?', '%#{params[:name]}%'" if params[:name].present?
+    
     if filter.empty?
-      @players = Player.all.paginate(:page => params[:page], :per_page => 25)
-    else
-      # @players = Player.where("seva_score >= ? AND ppg >= ? AND win > ? AND hsclass = ?", params[:seva_score], params[:ppg], params[:win], params[:hsclass]).paginate(:page => params[:page], :per_page => 25)
-      @players = Player.where(filter.join(' AND ')).paginate(:page => params[:page], :per_page => 25)
+        @players = Player.all.paginate(:page => params[:page], :per_page => 25)
+      else
+        @players = Player.where(filter.join(' AND ')).paginate(:page => params[:page], :per_page => 25)
     end
 
       @h = Player.all
