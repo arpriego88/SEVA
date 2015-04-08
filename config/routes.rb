@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   
   get 'users/index'
   get 'users/profile'
+  get 'users/dashboard'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 

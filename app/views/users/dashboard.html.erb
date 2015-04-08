@@ -1,0 +1,25 @@
+<div class="row">
+<table class="small-12 small-centered large-12 large-centered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <td>Email</th>
+        <th>User Type</th>
+        <th>Sign In Count</th>
+        <th>Last Sign In</th>
+        <th>Admin?</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @user.each do |u| %>
+    <tr>
+      <td><%= u.name %></td>
+      <td><%= u.email %></td>
+      <td><%= u.users_type %></td>
+      <td><%= u.sign_in_count %></td>
+      <td><%= u.last_sign_in_at.strftime("%B %d, %Y, %I:%M %P") %></td>
+      <td><%= u.admin? %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
